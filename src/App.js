@@ -6,8 +6,6 @@ import { initializePlaylist } from "./initialize";
 import Navbar from "./components/Navbar";
 import { MusicContext } from "./Context";
 
-
-
 function App() {
   const [keyword, setKeyword] = useState("");
   const [message, setMessage] = useState("");
@@ -60,22 +58,15 @@ function App() {
   useEffect(() => {
     initializePlaylist();
 
-
     const script = document.createElement("script");
     script.src = "https://sdk.scdn.co/spotify-player.js";
     script.async = true;
     document.body.appendChild(script);
   
     window.onSpotifyWebPlaybackSDKReady = () => {
-      const token = '<Your_Spotify_Token>'; // Replace with your Spotify token
-  
-      // Ready
-  
+      const token = 'BQB9Y9_E28rfVWJlrVohUxEgpo55nv-nek7RUTZUVzgC8Dye_dsfNBIrOUsq4pOIFdfHcdhJCh6xBbArcP_HPxLtyPK23jnyAUuiJsp9YgQKFy0DUZw';   
     };
 
-
-
-    // current client credentials will be deleted in few days
     const fetchToken = async () => {
       try {
         const response = await fetch("https://accounts.spotify.com/api/token", {
@@ -181,10 +172,4 @@ function App() {
   );
 }
 
-
-
-
-
-
 export default App;
-
